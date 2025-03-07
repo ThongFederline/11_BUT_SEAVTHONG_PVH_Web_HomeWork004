@@ -1,18 +1,15 @@
-import { Plus } from "lucide-react";
+import { CloudCog, Plus } from "lucide-react";
 import React, { useState } from "react";
-import CardComponent from "./CardComponent";
-
-  // export default function AddNewProjectComponent({addProject}) {
-  // we have to add the fonction addproject to this font command to ANP
-  // to perform action create a new project 
-  export default function AddNewProjectComponent({addProject}) {
-
+import CardComponent from "./CardComponent"; 
+  export default function AddNewProjectComponent({addProject,seachname}) {
   const [dueDate, setDueDate] = useState("");
   const [projectName, setProjectName] = useState("");
   const [progress, setProgress] = useState("");
   const [description, setDescription] = useState("");
-  const [projects, setProjects] = useState([]);
+  const [projects, setProjects] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const SearchData = inputValue.filter((e)=>
+    e.projectName.toLowerCase().includes(serch.seachname()))
 
   const handleCreate = (e) => {
     e.preventDefault();
@@ -23,17 +20,22 @@ import CardComponent from "./CardComponent";
       description,
     };
 
-    setProjects([...projects, project]);
+      setProjects(project)
     setDueDate("");
     setProgress("");
     setDescription("");
     setProjectName("");
     setIsModalOpen(false);
 
-    // using function add project to add any project.
-    addProject(projects);
+    // using function add project to add any project. 
+      addProject(project);
   };
+  //  console.log("projects" ,projects);
+   const handleSubmit = () => {
+    setProjects( Projects);
+   }
 
+   
   return (
     <div className="mr-10 ">
       <button
@@ -93,6 +95,7 @@ import CardComponent from "./CardComponent";
 
             <div className="text-right">
               <button
+              onSubmit={handleCreate}
                 type="submit"
                 className="text-white bg-custom-sky-blue hover:bg-custom-sky-blue-500 font-medium rounded-lg px-5 py-2"
               >

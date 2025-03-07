@@ -13,8 +13,18 @@ function App() {
   const [projects, setProjects] = useState([]);
   //function to recieve data from child component
   const addProject = (project) => {
+    // console.log("project", project)
     setProjects([...projects, project]);
   };
+  
+  const [seachname, setsearchname] = useState([]);
+  const search = (p) => {
+    // console.log("project", project)
+    setsearchname(p);
+  };
+  
+  
+  
 
   return (
     <div className="grid grid-cols-12 gap-0 bg-gray-100">
@@ -23,7 +33,10 @@ function App() {
       </div>
       <div className="col-span-9 gap-5 mr-10">
         <div>
-          <TopNavbarComponent />
+          <TopNavbarComponent 
+          search={search}
+
+          />
         </div>
 
         <div className="grid grid-cols-8">
@@ -37,7 +50,7 @@ function App() {
                 <AssignmentComponent />
 
                 {/* Pass the function to add projects */}
-                <AddNewProjectComponent addProject={addProject} />
+                <AddNewProjectComponent addProject={addProject} seachname={seachname} />
               </div>
 
               {/* Display the project cards dynamically */}
