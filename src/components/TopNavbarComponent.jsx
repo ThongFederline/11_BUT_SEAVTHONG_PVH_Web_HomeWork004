@@ -7,11 +7,13 @@ export default function TopNavbarComponent() {
     // to prevent the page from reload
     e.preventDefault();
   };
-
+ 
   return (
-    <div className="flex justify-between items-center">
-      {/* search bar */}
-      <form className="relative w-9/12 " onSubmit={handleSubmit}>
+    <div className="flex justify-between w-full items-center  rounded-xl mt-5 mr-0 gap-10">
+      <form
+        className="relative w-9/12 shadow rounded-2xl "
+        onSubmit={handleSubmit}
+      >
         {/* search button */}
         <button className="cursor-pointer">
           <Search className="w-6 h-6 text-primary-text absolute top-3 left-4" />
@@ -33,7 +35,7 @@ export default function TopNavbarComponent() {
       </div>
 
       {/* profile image */}
-      <div className="h-16 rounded-xl w-2/12 bg-white py-2.5 px-3 flex gap-3 items-start">
+      <div className="h-16 rounded-xl w-[230px] bg-white py-2.5 px-3 flex gap-3 items-start">
         <img
           src="https://i.pinimg.com/736x/39/2a/50/392a5042102c7d7e4ed87527a2d7e74a.jpg"
           alt="profile image"
@@ -48,6 +50,8 @@ export default function TopNavbarComponent() {
           <p className="text-gray-400 text-sm">darkmoon@gmail.com</p>
         </div>
       </div>
+
+      
     </div>
   );
 }

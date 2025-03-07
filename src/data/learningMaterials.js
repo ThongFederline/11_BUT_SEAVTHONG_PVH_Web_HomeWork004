@@ -5,7 +5,7 @@ export const learningMaterials = [
       "https://i.pinimg.com/736x/ca/e1/b4/cae1b4f6b223fe5a7bb712b680cffa67.jpg",
     title: "HTML5",
     postedAt: "2025/01/13",
-    isFavorite: false,
+    isFavorite: false,  
   },
   {
     id: 2,
